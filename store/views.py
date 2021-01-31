@@ -1,11 +1,8 @@
-from django.shortcuts import render , get_object_or_404
-from .models import Products , Category
+from django.shortcuts import render , get_object_or_404 
+from .models import *
 
 # Create your views here.
 def home_view(request):
-<<<<<<< HEAD
-    return render(request, 'store/index.html', {'home_view': home_view})
-=======
     products = Products.objects.all()
     categories = Category.objects.all()
     context = {'products':products,'categories':categories}
@@ -17,5 +14,24 @@ def product_detail(request, pk):
     context = {'product':product}
     return render(request, 'store/product-page.html', context)
 
+def cart(request):
+    if request.user.is_authenticated:
+        customer = request.user
+        order, create = Order.objects.get_or_create(customer=customer, completed=False)
+        items = order.orderitem_set.all()
+    else:
+        items =[]
+    context = {'items':items, 'order':order}
+    return render(request, 'store/cart.html', context)
 
->>>>>>> fce40959d6f96589a2b422dbd444a99993ca4c8b
+
+
+def checkout_summary(request):
+    if request.user.is_authenticated:
+        customer = request.user
+        order, create = Order.objects.get_or_create(customer=customer, completed=False)
+        items = order.orderitem_set.all()
+    else:
+        items =[]
+    context = {'items':items, 'order':order}
+    return render(request, 'store/checkout-page.html', context)

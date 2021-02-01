@@ -1,36 +1,67 @@
 {% load static %}
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<title>{% block head_title %}{% endblock %}</title>
-{% block extra_head %}
-{% endblock %}
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<link rel="stylesheet" href="css/bootstrap.min.css" />
-<link rel="stylesheet" href="css/bootstrap-responsive.min.css" />
-<link rel="stylesheet" href="css/fullcalendar.css" />
-<link rel="stylesheet" href="css/matrix-style.css" />
-<link rel="stylesheet" href="css/matrix-media.css" />
-<link href="font-awesome/css/font-awesome.css" rel="stylesheet" />
-<link rel="stylesheet" href="css/jquery.gritter.css" />
-<link href='http://fonts.googleapis.com/css?family=Open+Sans:400,700,800' rel='stylesheet' type='text/css'>
-</head>
-<body>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  <title>{% block head_title %}{% endblock %}</title>
+  {% block extra_head %}
+  {% endblock %}
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css">
+  <link href="{% static 'css/bootstrap.min.css' %}" rel="stylesheet">
+  <link href="{% static 'css/mdb.min.css' %}" rel="stylesheet">
+  <link href="{% static 'css/style.min.css' %}" rel="stylesheet">
 
-    {% if messages %}
+  <link rel="stylesheet" href="{% static 'css/bootstrap-responsive.min.css' %}" />
+  <link rel="stylesheet" href="{% static 'css/fullcalendar.css' %}" />
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css">
+  <link href="{% static 'css/bootstrap.min.css' %}" rel="stylesheet">
+  <link href="{% static 'css/mdb.min.css' %}" rel="stylesheet">
+  <link href="{% static 'css/style.min.css' %}" rel="stylesheet">
+  <link rel="stylesheet" href="{% static 'css/matrix-style.css' %}" />
+  <link rel="stylesheet" href="{% static 'css/matrix-media.css' %}" />
+  <link href="{% static 'font/css/font-awesome.css' %}" rel="stylesheet" />
+  <link rel="stylesheet" href="{% static 'css/jquery.gritter.css' %}" />
+
+</head>
+
+<body>
+  {% if messages %}
     {% for message in messages %}
       <div class="alert alert-{{ message.tags }}">
         {{ message }}
       </div>
     {% endfor %}
-    {% endif %}
+  {% endif %}
     {% block content %}
-
 
     {% endblock %}
 
-    
-</body>
+    <script src="{% static 'js/excanvas.min.js' %}"></script> 
+    <script src="{% static 'js/jquery.min.js' %}"></script> 
+    <script src="{% static 'js/jquery.ui.custom.js' %}"></script> 
+    <script src="{% static 'js/bootstrap.min.js' %}"></script> 
+    <script src="{% static 'js/jquery.flot.min.js' %}"></script> 
+    <script src="{% static 'js/jquery.flot.resize.min.js' %}"></script> 
+    <script src="{% static 'js/jquery.peity.min.js' %}"></script> 
+    <script src="{% static 'js/fullcalendar.min.js' %}"></script> 
+    <script src="{% static 'js/matrix.js' %}"></script> 
+    <script src="{% static 'js/matrix.dashboard.js' %}"></script> 
+    <script src="{% static 'js/jquery.gritter.min.js' %}"></script> 
+    <script src="{% static 'js/matrix.interface.js' %}"></script> 
+    <script src="{% static 'js/matrix.chat.js' %}"></script> 
+    <script src="{% static 'js/jquery.validate.js' %}"></script> 
+    <script src="{% static 'js/matrix.form_validation.js' %}"></script> 
+    <script src="{% static 'js/jquery.wizard.js' %}"></script> 
+    <script src="{% static 'js/jquery.uniform.js' %}"></script> 
+    <script src="{% static 'js/select2.min.js' %}"></script> 
+    <script src="{% static 'js/matrix.popover.js' %}"></script> 
+    <script src="{% static 'js/jquery.dataTables.min.js' %}"></script> 
+    <script src="{% static 'js/matrix.tables.js' %}"></script>
 
+    
+
+</body>
 </html>

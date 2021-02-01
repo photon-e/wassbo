@@ -23,6 +23,7 @@ from accounts import views as account_views
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include('store.urls')),
+    path('accounts/', include('accounts.urls')),
     path('register/', account_views.register, name='register'),
     path('profile/', account_views.profile, name='profile'),
     path('login/', auth_views.LoginView.as_view(template_name='accounts/login.html'), name='login'),

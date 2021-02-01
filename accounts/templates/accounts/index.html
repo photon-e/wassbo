@@ -22,14 +22,14 @@
   <ul class="nav">
     <li  class="dropdown" id="profile-messages" ><a title="" href="#" data-toggle="dropdown" data-target="#profile-messages" class="dropdown-toggle"><i class="icon icon-user"></i>  <span class="text">Welcome SuperUser</span><b class="caret"></b></a>
       <ul class="dropdown-menu">
-        <li><a href="#"><i class="icon-user"></i> My Profile</a></li>
+        <li><a href="{% url 'profile' %}"><i class="icon-user"></i> My Profile</a></li>
         <li class="divider"></li>
-        <li><a href="#"><i class="icon-check"></i> My Tasks</a></li>
+        <li><a href="{% url 'my-task' %}"><i class="icon-check"></i> My Tasks</a></li>
         <li class="divider"></li>
-        <li><a href="login.html"><i class="icon-key"></i> Log Out</a></li>
+        <li><a href="{% url 'logout' %}"><i class="icon-key"></i> Log Out</a></li>
       </ul>
     </li>
-    <li class=""><a title="" href="login.html"><i class="icon icon-share-alt"></i> <span class="text">Logout</span></a></li>
+    <li class=""><a title="" href="{% url 'logout' %}"><i class="icon icon-share-alt"></i> <span class="text">Logout</span></a></li>
   </ul>
 </div>
 <!--close-top-Header-menu-->
@@ -44,34 +44,32 @@
 <!--close-top-serch-->
 
 <!--sidebar-menu-->
-<div id="sidebar"><a href="#" class="visible-phone"><i class="icon icon-home"></i> Dashboard</a>
+<div id="sidebar"><a href="{% url 'dashboard' %}" class="visible-phone"><i class="icon icon-home"></i> Dashboard</a>
     <ul>
-      <li class="active"><a href="index.html"><i class="icon icon-home"></i> <span>Dashboard</span></a> </li>
+      <li class="active"><a href="{% url 'dashboard' %}"><i class="icon icon-home"></i> <span>Dashboard</span></a> </li>
       <li class="submenu"> <a href="#"><i class="icon icon-th-list"></i> <span>Agents</span> <span class="label label-important">3</span></a>
         <ul>
-          <li><a href="form-common.html">Agents list</a></li>
-          <li><a href="form-validation.html">Manage Agents</a></li>
-          <li><a href="form-wizard.html">Toggle Agent</a></li>
+          <li><a href="{% url 'agents-list' %}">Agents list</a></li>
+          <li><a href="{% url 'manage-agents' %}">Manage Agents</a></li>
+          <li><a href="{% url 'toggle-agent' %}">Toggle Agent</a></li>
         </ul>
       </li>
   
       <li class="submenu"> <a href="#"><i class="icon icon-th-list"></i> <span>Farmers</span> <span class="label label-important">3</span></a>
         <ul>
-          <li><a href="form-common.html">Farmers list</a></li>
-          <li><a href="form-validation.html">Manage Farmers</a></li>
-          <li><a href="form-wizard.html">Toggle Farmer</a></li>
-          <li><a href="form-wizard.html">New Farmer Request</a></li>
-          <li><a href="form-wizard.html">Farmer Renewal Request</a></li>
+          <li><a href="{% url 'farmers-list' %}">Farmers list</a></li>
+          <li><a href="{% url 'manage-farmers' %}">Manage Farmers</a></li>
+          <li><a href="{% url 'toggle-farmer' %}">Toggle Farmer</a></li>
+          <li><a href="{% url 'farmer-request' %}">Farmer Request</a></li>
         </ul>
       </li>
   
       <li class="submenu"> <a href="#"><i class="icon icon-th-list"></i> <span>Traders</span> <span class="label label-important">3</span></a>
         <ul>
-          <li><a href="form-common.html">Traders list</a></li>
-          <li><a href="form-validation.html">Manage Traders</a></li>
-          <li><a href="form-wizard.html">Toggle Trader</a></li>
-          <li><a href="form-wizard.html">New Trader</a></li>
-          <li><a href="form-wizard.html">Trader Renewal Request</a></li>
+          <li><a href="{% url 'traders-list' %}">Traders list</a></li>
+          <li><a href="{% url 'manage-traders' %}">Manage Traders</a></li>
+          <li><a href="{% url 'toggle-traders' %}">Toggle Trader</a></li>
+          <li><a href="{% url 'traders-request' %}">Trader Request</a></li>
         </ul>
       </li>
   
@@ -85,7 +83,7 @@
 <div id="content">
     <!--breadcrumbs-->
       <div id="content-header">
-        <div id="breadcrumb"> <a href="index.html" title="Go to Home" class="tip-bottom"><i class="icon-home"></i> Home</a></div>
+        <div id="breadcrumb"> <a href="{% url 'dashboard' %}" title="Go to Home" class="tip-bottom"><i class="icon-home"></i> Home</a></div>
       </div>
     <!--End-breadcrumbs-->
     
@@ -93,9 +91,9 @@
       <div class="container-fluid">
         <div class="quick-actions_homepage">
           <ul class="quick-actions">
-            <li class="bg_lb"> <a href="index.html"> <i class="icon-dashboard"></i> <span class="label label-important">20</span> Agents </a> </li>
-            <li class="bg_lb"> <a href="index.html"> <i class="icon-dashboard"></i> <span class="label label-important">20</span> Traders </a> </li>
-            <li class="bg_ly"> <a href="widgets.html"> <i class="icon-inbox"></i><span class="label label-success">101</span> Farmers </a> </li>        
+            <li class="bg_lb"> <a href="{% url 'agents-list' %}"> <i class="icon-dashboard"></i> <span class="label label-important">20</span> Agents </a> </li>
+            <li class="bg_lb"> <a href="i{% url 'traders-list' %}"> <i class="icon-dashboard"></i> <span class="label label-important">20</span> Traders </a> </li>
+            <li class="bg_ly"> <a href="{% url 'farmers-list' %}"> <i class="icon-inbox"></i><span class="label label-success">101</span> Farmers </a> </li>        
           </ul>
         </div>
     <!--End-Action boxes-->    
@@ -200,32 +198,11 @@
 <!--Footer-part-->
 
 <div class="row-fluid">
-  <div id="footer" class="span12"> 2013 &copy; Matrix Admin. Brought to you by <a href="http://themedesigner.in">Themedesigner.in</a> </div>
+  <div id="footer" class="span12"> 2021 &copy; Matrix Admin. Brought to you by <a href="http://twitter.com/jah_3li">3li</a> </div>
 </div>
 
 <!--end-Footer-part-->
 
-<script src="js/excanvas.min.js"></script> 
-<script src="js/jquery.min.js"></script> 
-<script src="js/jquery.ui.custom.js"></script> 
-<script src="js/bootstrap.min.js"></script> 
-<script src="js/jquery.flot.min.js"></script> 
-<script src="js/jquery.flot.resize.min.js"></script> 
-<script src="js/jquery.peity.min.js"></script> 
-<script src="js/fullcalendar.min.js"></script> 
-<script src="js/matrix.js"></script> 
-<script src="js/matrix.dashboard.js"></script> 
-<script src="js/jquery.gritter.min.js"></script> 
-<script src="js/matrix.interface.js"></script> 
-<script src="js/matrix.chat.js"></script> 
-<script src="js/jquery.validate.js"></script> 
-<script src="js/matrix.form_validation.js"></script> 
-<script src="js/jquery.wizard.js"></script> 
-<script src="js/jquery.uniform.js"></script> 
-<script src="js/select2.min.js"></script> 
-<script src="js/matrix.popover.js"></script> 
-<script src="js/jquery.dataTables.min.js"></script> 
-<script src="js/matrix.tables.js"></script> 
 
 <script type="text/javascript">
   // This function is called from the pop-up menus to transfer to
